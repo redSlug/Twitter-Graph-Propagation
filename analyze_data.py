@@ -163,7 +163,7 @@ def save_user_id_to_score_vector_to_file():
     f.close()
 
 def main(argv):
-    #save_user_id_to_score_vector_to_file()
+    save_user_id_to_score_vector_to_file()
 
     file_name = "user_id_score_vector_dict.json"
     score_histogram = {}
