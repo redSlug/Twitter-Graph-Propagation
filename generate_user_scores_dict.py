@@ -14,40 +14,40 @@ class User_Score_Vector:        # this is not json serializable!!!
     def calculateScore(self):
         baseScore = 50
 
-        if self.retweets >= 2:
-            baseScore += 1
+        if self.retweets >= 20:
+            baseScore += 5
         elif self.retweets >= 10:
             baseScore += 2
-        elif self.retweets >= 20:
-            baseScore += 3
-
-        if self.followers >= 25:
+        elif self.retweets >= 5:
             baseScore += 1
+
+        if self.followers >= 2500:
+            baseScore += 3
         elif self.followers >= 250:
             baseScore += 2
-        elif self.followers >= 2500:
-            baseScore += 3
-
-        if self.positivity >= 5:
+        elif self.followers >= 25:
             baseScore += 1
+
+        if self.positivity >= 80:
+            baseScore += 3
         elif self.positivity >= 50:
             baseScore += 2
-        elif self.positivity >= 80:
-            baseScore += 3
+        elif self.positivity >= 5:
+            baseScore += 1
 
-        if self.negativity >= 5:
-            baseScore -= 3
+        if self.negativity >= 80:
+            baseScore -= 10
         elif self.negativity >= 50:
             baseScore -= 5
-        elif self.negativity >= 80:
-            baseScore -= 10
+        elif self.negativity >= 5:
+            baseScore -= 3
 
-        if self.swearing >= 1:
-            baseScore -= 10
+        if self.swearing >= 10:
+            baseScore -= 40
         elif self.swearing >= 5:
             baseScore -= 20
-        elif self.swearing >= 10:
-            baseScore -= 40
+        elif self.swearing >= 1:
+            baseScore -= 10
         return baseScore
 
 
