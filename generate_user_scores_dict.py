@@ -109,9 +109,8 @@ def print_user_ids_with_score_greater_than_n_to_screen(dict, n):
             print key, dict[key]
 
 
-def save_user_id_to_score_vector_to_file():
+def generate_base_scores_and_save_to_file():
     # base scores on amount of followers, favorites, and words in tweets.
-
     negative_word_dict = generate_special_word_dict_from_file("negative_words")
     user_negativity_score_dict = process_all_json_files(negative_word_dict)
 
@@ -121,8 +120,7 @@ def save_user_id_to_score_vector_to_file():
     swear_word_dict = generate_special_word_dict_from_file("swear_words")
     user_profanity_score_dict = process_all_json_files(swear_word_dict)
 
-    #user_negativity_score_dict = user_positivity_score_dict = user_profanity_score_dict = {}
-
+    # generate score vector for each user
     os.chdir('json')
     id_to_score_dict = {}
     for file_name in os.listdir('.'):  # grabbing all ids from json files from current directory
@@ -151,20 +149,22 @@ def save_user_id_to_score_vector_to_file():
                 if user_id in user_profanity_score_dict:
                     swearing = user_profanity_score_dict[user_id]
 
-
                 usv = User_Score_Vector(retweetCount, favoriteCount, followerCount, negativity, positivity, swearing)
-                id_to_score_dict[user_id] = [retweetCount, favoriteCount, followerCount, negativity, positivity, swearing, usv.score]
+                id_to_score_dict[int(user_id)] = [retweetCount, favoriteCount, followerCount, negativity, positivity, swearing, usv.score]
 
     os.chdir('../')  # setting state back to how it started
 
+    # save score vector dict to file
     json_encoded = json.dumps(id_to_score_dict)
     f = open(str("user_id_score_vector_dict") + '.json', 'w')
     f.write(json_encoded)
     f.close()
 
 def main(argv):
-    save_user_id_to_score_vector_to_file()
+    # generates scores
+    generate_base_scores_and_save_to_file()
 
+    # see the distribution of scores
     file_name = "user_id_score_vector_dict.json"
     score_histogram = {}
     with open(file_name) as json_file:
@@ -173,14 +173,11 @@ def main(argv):
             if id_score_dict[user_id][-1] not in score_histogram:   # last one refers to score
                 score_histogram[id_score_dict[user_id][-1]] = []
             score_histogram[id_score_dict[user_id][-1]].append(user_id)
-        print
-
-
-
-
-
-
-
+    print "score\tuser count"
+    print "-" * len("score   user count")
+    for key in score_histogram:
+        #print len(score_histogram[key])
+        print "%d\t\t%d" % (key, len(score_histogram[key]))
 
 
 if __name__ == "__main__":
