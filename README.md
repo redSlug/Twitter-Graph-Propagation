@@ -2,8 +2,8 @@ Twitter Trust Propogation
 =========================
 
 Makes predictions of trustworthiness of people in your network based on who their connections are.
-Downloads timelines and connections from people in your network and saves each users data into separate json file. 
-Assigns a score to each user based on vocabulary, re-tweets, and favorited tweets. Predicts score correctly
+Downloads timelines and connections, and saves each user's data to a separate json file. 
+Assigns a score to each user based on vocabulary, re-tweets, and favorited tweets. Predicts score 
 based on 'friends_ids' with a 70 percent accuracy using my network.
 
 ### Setup:
@@ -11,7 +11,7 @@ based on 'friends_ids' with a 70 percent accuracy using my network.
 - If you plan to grab data for more than just a few users, make sure to prevent your machine from sleeping in your energy settings,
 or find another way to keep the network connection alive.
 - Make sure you have tweepy installed
-- Before you run this tool, make sure to create/populate a file named 'secret' in the root directory with your authentication keys from twitter (one per line): 
+- Before you run this tool, make sure to create/populate a file named 'secret' in the root directory with your authentication keys from twitter: 
     - CONSUMER_KEY
     - CONSUMER_SECRET
     - ACCESS_KEY
