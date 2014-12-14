@@ -11,7 +11,7 @@ based on 'friends_ids' with a 75 percent accuracy using my network.
 - If you plan to grab data for more than just a few users, make sure to prevent your machine from sleeping in your energy settings,
 or find another way to keep the network connection alive.
 - Make sure you have tweepy installed
-- Before you run this tool, make sure to create/populate a file named 'secret' in the root directory with your authentication keys from twitter: 
+- Before you run this tool, make sure to create/populate a file named 'secret' in the root directory with your authentication keys from twitter (each on a separate line): 
     - CONSUMER_KEY
     - CONSUMER_SECRET
     - ACCESS_KEY
