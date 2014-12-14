@@ -4,7 +4,7 @@ Twitter Trust Propogation
 Makes predictions of trustworthiness of people in your network based on who their connections are.
 Downloads timelines and connections, and saves each user's data to a separate json file. 
 Assigns a score to each user based on vocabulary, re-tweets, and favorited tweets. Predicts score 
-based on 'friends_ids' with a 70 percent accuracy using my network.
+based on 'friends_ids' with a 75 percent accuracy using my network.
 
 ### Setup:
 
