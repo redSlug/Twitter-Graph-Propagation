@@ -28,10 +28,9 @@ or find another way to keep the network connection alive.
 ##### positive words: 
 - http://positivewordsresearch.com/list-of-positive-words/
 - http://boostblogtraffic.com/power-words/
-- http://www.slate.com/blogs/lexicon_valley/2013/09/11/top_swear_words_most_popular_curse_words_on_facebook.html
 - Bing Liu, Minqing Hu and Junsheng Cheng. "Opinion Observer: Analyzing and Comparing Opinions on the Web."
 
 #####negative words:
 - https://github.com/jeffreybreen/twitter-sentiment-analysis-tutorial-201107/blob/master/data/opinion-lexicon-English/negative-words.txt
-
+- http://www.slate.com/blogs/lexicon_valley/2013/09/11/top_swear_words_most_popular_curse_words_on_facebook.html
 
