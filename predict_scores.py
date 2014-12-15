@@ -47,5 +47,5 @@ def predict_all_scores(predict_based_on):
 
 
 #predict_score(26589987)
-print predict_all_scores("friends_ids")
-print predict_all_scores("followers_ids")
+print "Score prediction accuracy using friends_ids: %f" % predict_all_scores("friends_ids")
+print "Score prediction accuracy using followers_ids: %f" % predict_all_scores("followers_ids")

@@ -1,7 +1,7 @@
 __author__ = 'brandy'
 import json, os, sys
 
-class User_Score_Vector:        # this is not json serializable!!!
+class User_Score_Vector:
     def __init__(self, retweets=0, favorites=0, followers=0, negativity=0, positivity=0, swearing=0):
         self.retweets = retweets
         self.favorites = favorites
@@ -42,7 +42,7 @@ def generate_score_based_on_tweets(user_id, word_dict):
             for tweet in tweets:
                 tweet_arr.append(tweet['text'])
 
-    tweet_count = 1     # to avoid division by zero
+    tweet_count = 1         # to avoid division by zero
     special_word_count = 0
     for tweet in tweet_arr:
         tweet_count += 1
@@ -50,7 +50,7 @@ def generate_score_based_on_tweets(user_id, word_dict):
             try:
                 if " " + special_word + " " in tweet.lower():
                     special_word_count += 1
-                    break   # just looking for one word in the tweet, keeps it normalized between 0 and 100%
+                    break   # just looking for one word in the tweet, keeps it between 0 and 100%
             except:
                 print "problem with word:", special_word
 
@@ -143,7 +143,7 @@ def generate_base_scores_and_save_to_file():
 
 def main(argv):
     # generates scores
-    generate_base_scores_and_save_to_file()
+    #generate_base_scores_and_save_to_file()
 
     # see the distribution of scores
     file_name = "user_id_score_vector_dict.json"
@@ -158,14 +158,18 @@ def main(argv):
     print "-" * len("score   user count")
     lt50 = 0
     gt50 = 0
+    eq50 = 0
     for key in score_histogram:
         #print len(score_histogram[key])
         if key < 50:
             lt50 += len(score_histogram[key])
-        if key > 50:
+        elif key > 50:
             gt50 += len(score_histogram[key])
+        else:
+            eq50 = len(score_histogram[key])
         print "%d\t\t%d" % (key, len(score_histogram[key]))
     print "less than 50 count:", lt50
+    print "equal to 50 count:", eq50
     print "greater than 50 count:", gt50
 
 
