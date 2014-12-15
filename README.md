@@ -1,4 +1,4 @@
-Twitter Trust Propogation
+Twitter Trust Propagation
 =========================
 
 Makes predictions of trustworthiness of people in your network based on who their connections are.
