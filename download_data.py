@@ -1,4 +1,4 @@
-__author__ = 'brandy'
+
 
 import tweepy, sys, json, os, time
 from time import gmtime, strftime

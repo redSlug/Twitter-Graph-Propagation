@@ -1,4 +1,4 @@
-__author__ = 'brandy'
+
 import json, os, sys
 
 class User_Score_Vector:
